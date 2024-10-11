@@ -7,6 +7,12 @@ function App() {
   console.log('Firebase', firebase)
   const [email, setEmail]=useState('');
   const [password, setPassword]=useState('');
+
+const putDataNew=() => {
+  // firebase.putData("root/a/b", {id:1});
+  firebase.putData("grandfater/father/child", {id:1, name:'Tanisha',age:21, });
+}
+
   return (
     <div className="App">
       <h1>Firebase</h1>
@@ -24,7 +30,9 @@ function App() {
         firebase.signUpUserWithEmailAndPassword
         (email,password);
         firebase.putData("users/" + "tanishabansal", {email,password});
-      } }>Signup</button>
+      } }>Signup
+      </button>
+      <button onClick={putDataNew}>Trigger</button>
     </div>
   );
 }
